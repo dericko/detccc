@@ -1,5 +1,8 @@
-import { useEffect, useState, useRef, SyntheticEvent } from "react";
-import { Player, Earth, Alien, Bullet } from "./GameUtils";
+import { useEffect, useState, useRef } from "react";
+import {
+  Player, Earth, Alien, polarToCartesian,
+  CANVAS_HEIGHT, CANVAS_WIDTH, resolveCollisions
+} from "./GameUtils";
 import { timer } from "d3-timer"
 
 const SPRITE_SHEET_SRC =
@@ -15,9 +18,81 @@ function createBulletSrc(): string {
   return bulletCanvas.toDataURL();
 }
 
-const CANVAS_HEIGHT = 400;
-const CANVAS_WIDTH = 400;
 const earth = new Earth();
+
+const TOTAL_ALIENS = 36;
+var ALIEN_BOTTOM_ROW = [
+  { x: 0, y: 0, w: 51, h: 34 },
+  { x: 0, y: 102, w: 51, h: 34 },
+];
+var ALIEN_MIDDLE_ROW = [
+  { x: 0, y: 137, w: 50, h: 33 },
+  { x: 0, y: 170, w: 50, h: 34 },
+];
+var ALIEN_TOP_ROW = [
+  { x: 0, y: 68, w: 50, h: 32 },
+  { x: 0, y: 34, w: 50, h: 32 },
+];
+let alienCount = 0;
+const ALIEN_RADIUS = 300;
+function setupAlienFormation() {
+  const aliens = [];
+  alienCount = 0;
+  const angleStep = 36;
+  const numberPerRow = 6;
+  for (var i = 0; i < TOTAL_ALIENS; i++) {
+    // handles some logic for getting them from the sprite sheet
+    var gridY = Math.floor(i / 5);
+    var clipRects;
+    switch (gridY) {
+      case 0:
+      case 1:
+        clipRects = ALIEN_BOTTOM_ROW;
+        break;
+      case 2:
+      case 3:
+        clipRects = ALIEN_MIDDLE_ROW;
+        break;
+      case 4:
+        clipRects = ALIEN_TOP_ROW;
+        break;
+    }
+    const angle = (360 / angleStep) * i;
+    // TODO: handle multiple layers (different radiuses)
+    const radius = ALIEN_RADIUS - 30 * (i % numberPerRow);
+    const { x, y } = polarToCartesian(radius, angle).translateToCenter();
+    aliens.push(new Alien(clipRects, x, y, radius, angle));
+    alienCount++;
+  }
+  return aliens;
+}
+let wave = 1;
+function updateAliens(aliens, dt) {
+  for (var i = aliens.length - 1; i >= 0; i--) {
+    var alien = aliens[i];
+    if (!alien.alive) {
+      aliens.splice(i, 1);
+      alien = null;
+      alienCount--;
+      if (alienCount < 1) {
+        wave++;
+        setupAlienFormation();
+      }
+      return;
+    }
+
+    alien.stepDelay = (alienCount * 20 - wave * 10) / 1000;
+    if (alien.stepDelay <= 0.05) {
+      alien.stepDelay = 0.05;
+    }
+    alien.update(dt);
+
+    if (alien.doShoot) {
+      alien.doShoot = false;
+      alien.shoot();
+    }
+  }
+}
 
 export default function Game() {
   const [player, setPlayer] = useState(null);
@@ -59,7 +134,13 @@ export default function Game() {
     player.draw(ctx);
 
     // // 3 update aliens
-    // 4 resolve collisions
+    updateAliens(aliens, dt);
+    for (var i = 0; i < aliens.length; i++) {
+      var alien = aliens[i];
+      alien.draw(ctx);
+    }
+
+    resolveCollisions(player, aliens, earth);
   }
 
 
@@ -78,11 +159,16 @@ export default function Game() {
     // setup images
     const spriteSheetImg = new Image()
     spriteSheetImg.src = SPRITE_SHEET_SRC;
-    const player = new Player();
     const bulletImg = new Image();
     bulletImg.src = createBulletSrc();
+
+    const player = new Player();
     player.setImage(spriteSheetImg, bulletImg);
     setPlayer(player);
+
+    const aliens = setupAlienFormation();
+    aliens.forEach(a => a.setImage(spriteSheetImg, bulletImg));
+    setAliens(aliens);
   }, []);
 
   useEffect(() => {
@@ -94,10 +180,11 @@ export default function Game() {
 
     // start game
     if (!player) return;
+    if (!aliens.length) return;
     const t = timer((elapsed: number) => animate(elapsed, ctx));
     // cleanup
     return () => t.stop();
-  }, [player])
+  }, [player, aliens])
 
   return (
     <div id="game-context">

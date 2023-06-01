@@ -2,8 +2,8 @@
 // Constants
 //
 // ###################################################################
-var CANVAS_WIDTH = 400;
-var CANVAS_HEIGHT = 400;
+export const CANVAS_HEIGHT = 600;
+export const CANVAS_WIDTH = 600;
 var PLAYER_CLIP_RECT = { x: 0, y: 102, w: 62, h: 32 };
 const PLAYER_RADIUS = 60;
 const ALIEN_RADIUS = 350;
@@ -126,8 +126,9 @@ class Earth extends BaseSprite {
     const size = 30;
     const x = CANVAS_WIDTH / 2 - size;
     const y = CANVAS_HEIGHT / 2 - size;
-    super({ height: size, width: size }, x, y);
+    super(x, y);
     this.size = size;
+    this.bounds = new Rect(x, y, size, size);
   }
   draw(ctx) {
     ctx.fillStyle = "green";
@@ -225,7 +226,7 @@ class Player extends SheetSprite {
       this.position.y - this.bounds.h / 2,
       directionX,
       directionY,
-      0.01,
+      0.005,
       this.bulletImg
     );
     this.bullets.push(bullet);
@@ -312,11 +313,10 @@ class Bullet extends BaseSprite {
 }
 
 class Alien extends SheetSprite {
-  constructor(clipRects, x, y, radius, angle, spriteSheetImg, bulletImg) {
-    super(spriteSheetImg, clipRects[0], x, y);
-    this.bulletImg = bulletImg;
+  constructor(clipRects, x, y, radius, angle) {
+    super(x, y);
     this.clipRects = clipRects;
-    this.scale.set(0.5, 0.5);
+    this.scale.set(0.3, 0.3);
     this.alive = true;
     this.onFirstState = true;
     this.stepDelay = 1;
@@ -325,6 +325,12 @@ class Alien extends SheetSprite {
     this.bullet = null;
     this.radius = radius;
     this.angle = angle;
+  }
+
+  setImage(mainImage, bulletImg) {
+    this.img = mainImage;
+    this.bulletImg = bulletImg;
+    super.setImage(mainImage, this.clipRects[0]);
   }
 
   toggleFrame() {
@@ -348,12 +354,12 @@ class Alien extends SheetSprite {
   }
 
   update(dt) {
-    this.stepAccumulator += dt;
+    this.stepAccumulator += dt / 500;
 
     if (this.stepAccumulator >= this.stepDelay) {
       if (this.radius < 20) {
         // TODO: show score before resetting
-        reset();
+        // reset();
       }
 
       if (getRandomArbitrary(0, 1000) <= 5 * (this.stepDelay + 1)) {
@@ -388,4 +394,54 @@ class Alien extends SheetSprite {
   }
 }
 
-export { Player, Alien, Bullet, Earth };
+
+function resolveBulletAlienCollisions(player, aliens) {
+  var bullets = player.bullets;
+
+  for (var i = 0, len = bullets.length; i < len; i++) {
+    var bullet = bullets[i];
+    for (var j = 0, alen = aliens.length; j < alen; j++) {
+      var alien = aliens[j];
+      if (checkRectCollision(bullet.bounds, alien.bounds)) {
+        alien.alive = bullet.alive = false;
+        player.score += 25;
+      }
+    }
+  }
+}
+
+function resolveBulletPlayerCollisions(player, aliens, earth) {
+  for (var i = 0, len = aliens.length; i < len; i++) {
+    var alien = aliens[i];
+    if (
+      alien.bullet !== null &&
+      checkRectCollision(alien.bullet.bounds, player.bounds)
+    ) {
+      if (player.lives === 0) {
+        hasGameStarted = false;
+      } else {
+        alien.bullet.alive = false;
+        const { x, y } = polarToCartesian(
+          PLAYER_RADIUS,
+          this.angle
+        ).translateToCenter();
+        player.position.set(x, y);
+        player.lives--;
+        break;
+      }
+    }
+    if (
+      alien.bullet !== null &&
+      checkRectCollision(alien.bullet.bounds, earth.bounds)
+    ) {
+      alien.bullet.alive = false;
+    }
+  }
+}
+
+function resolveCollisions(player, aliens, earth) {
+  resolveBulletAlienCollisions(player, aliens);
+  resolveBulletPlayerCollisions(player, aliens, earth);
+}
+
+export { Player, Alien, Earth, polarToCartesian, resolveCollisions };
