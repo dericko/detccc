@@ -68,7 +68,11 @@ function setupAlienFormation() {
   }
   return aliens;
 }
-function updateAliens(aliens, dt) {
+function updateAliens(aliens: Alien[], dt: number): Alien[] {
+  console.log('updateAliens', aliens)
+  if (!aliens) {
+    throw new Error('no aliens');
+  }
   for (var i = aliens.length - 1; i >= 0; i--) {
     var alien = aliens[i];
     if (!alien.alive) {
@@ -93,11 +97,13 @@ function updateAliens(aliens, dt) {
       alien.shoot();
     }
   }
+  return [...aliens];
 }
 
 export default function Game() {
   const [player, setPlayer] = useState(null);
   const [aliens, setAliens] = useState([]); // TODO setup formation
+  const [isReady, setIsReady] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   function keyDownHandler(e) {
@@ -151,7 +157,35 @@ export default function Game() {
     const aliens = setupAlienFormation();
     aliens.forEach(a => a.setImage(spriteSheetImg, bulletImg));
     setAliens(aliens);
+
+    setIsReady(true);
   }, []);
+
+  useEffect(() => {
+    if (!isReady) return;
+
+    function step(elapsed: number): void {
+      const dt = elapsed - time;
+      time = elapsed;
+
+      // player
+      player.update(dt);
+      setPlayer(player);
+
+      // aliens
+      console.log('aliens', aliens)
+      // TODO: why is aliens undefined?
+      setAliens(prevAliens => updateAliens(prevAliens, dt));
+
+      resolveCollisions(player, aliens, earth);
+    }
+
+    // start game
+    const t = timer((elapsed: number) => step(elapsed));
+
+    // cleanup
+    return () => t.stop();
+  }, [isReady])
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -159,39 +193,21 @@ export default function Game() {
       throw new Error("Could not get canvas");
     }
     const ctx = canvas.getContext("2d");
-
-    if (!player) return;
-    if (!aliens.length) return;
-
-    function animate(elapsed: number, ctx: CanvasRenderingContext2D): void {
-      const dt = elapsed - time;
-      time = elapsed;
-
-      // background
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-      earth.draw(ctx);
-
-      // player
-      player.update(dt);
-      player.draw(ctx);
-
-      // aliens
-      updateAliens(aliens, dt);
-      for (var i = 0; i < aliens.length; i++) {
-        var alien = aliens[i];
-        alien.draw(ctx);
-      }
-
-      resolveCollisions(player, aliens, earth);
+    if (!ctx) {
+      throw new Error("Could not get canvas context");
     }
 
-    // start game
-    const t = timer((elapsed: number) => animate(elapsed, ctx));
+    if (!player) return;
+    if (!aliens || !aliens.length) return;
+    if (!earth) return;
 
-    // cleanup
-    return () => t.stop();
-  }, [player, aliens])
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    earth.draw(ctx);
+    player.draw(ctx);
+    aliens.forEach(a => a.alive && a.draw(ctx));
+  }, [player, aliens, earth]);
 
   return (
     <div id="game-context">

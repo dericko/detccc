@@ -408,6 +408,7 @@ function resolveBulletAlienCollisions(player, aliens) {
     for (var j = 0, alen = aliens.length; j < alen; j++) {
       var alien = aliens[j];
       if (checkRectCollision(bullet.bounds, alien.bounds)) {
+        console.log("resolveBulletAlienCollisions", "HIT")
         alien.alive = bullet.alive = false;
         player.score += 25;
       }
