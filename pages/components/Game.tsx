@@ -19,6 +19,8 @@ function createBulletSrc(): string {
 }
 
 const earth = new Earth();
+let wave = 1; // for levels
+let time = 0; // for animation
 
 const TOTAL_ALIENS = 36;
 var ALIEN_BOTTOM_ROW = [
@@ -66,7 +68,6 @@ function setupAlienFormation() {
   }
   return aliens;
 }
-let wave = 1;
 function updateAliens(aliens, dt) {
   for (var i = aliens.length - 1; i >= 0; i--) {
     var alien = aliens[i];
@@ -97,52 +98,23 @@ function updateAliens(aliens, dt) {
 export default function Game() {
   const [player, setPlayer] = useState(null);
   const [aliens, setAliens] = useState([]); // TODO setup formation
-  let time = 0; // for animation
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   function keyDownHandler(e) {
     if (!player) return;
     switch (e.code) {
-      case "ArrowLeft":
-      case "ArrowUp":
       case "KeyJ":
         player.setSpeed(-.5);
         break;
-      case "ArrowRight":
-      case "ArrowDown":
       case "KeyK":
         player.setSpeed(0.5);
         break;
-      case "Space":
+      case "KeyF":
       case "KeyX":
         player.shoot();
         break;
     }
   }
-
-  function animate(elapsed: number, ctx: CanvasRenderingContext2D): void {
-    const dt = elapsed - time;
-    time = elapsed;
-
-    // background
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    earth.draw(ctx);
-
-    // player
-    player.update(dt);
-    player.draw(ctx);
-
-    // // 3 update aliens
-    updateAliens(aliens, dt);
-    for (var i = 0; i < aliens.length; i++) {
-      var alien = aliens[i];
-      alien.draw(ctx);
-    }
-
-    resolveCollisions(player, aliens, earth);
-  }
-
 
   useEffect(() => {
     // setup canvas
@@ -156,10 +128,20 @@ export default function Game() {
     }
     ctx.imageSmoothingEnabled = false;
 
-    // setup images
+    // setup sprite images
     const spriteSheetImg = new Image()
     spriteSheetImg.src = SPRITE_SHEET_SRC;
+
     const bulletImg = new Image();
+    const createBulletSrc = () => {
+      const bulletCanvas = document.createElement("canvas");
+      bulletCanvas.width = 4;
+      bulletCanvas.height = 4;
+      const bulletCtx = bulletCanvas.getContext("2d");
+      bulletCtx.fillStyle = "white";
+      bulletCtx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      return bulletCanvas.toDataURL();
+    }
     bulletImg.src = createBulletSrc();
 
     const player = new Player();
@@ -178,10 +160,35 @@ export default function Game() {
     }
     const ctx = canvas.getContext("2d");
 
-    // start game
     if (!player) return;
     if (!aliens.length) return;
+
+    function animate(elapsed: number, ctx: CanvasRenderingContext2D): void {
+      const dt = elapsed - time;
+      time = elapsed;
+
+      // background
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      earth.draw(ctx);
+
+      // player
+      player.update(dt);
+      player.draw(ctx);
+
+      // aliens
+      updateAliens(aliens, dt);
+      for (var i = 0; i < aliens.length; i++) {
+        var alien = aliens[i];
+        alien.draw(ctx);
+      }
+
+      resolveCollisions(player, aliens, earth);
+    }
+
+    // start game
     const t = timer((elapsed: number) => animate(elapsed, ctx));
+
     // cleanup
     return () => t.stop();
   }, [player, aliens])

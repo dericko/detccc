@@ -114,8 +114,8 @@ class BaseSprite {
 
   draw(ctx) {
     if (!this.img || !this.bounds) {
-      throw new Error('Must set img and bounds before drawing');
-    };
+      throw new Error("Must set img and bounds before drawing");
+    }
     this._updateBounds();
     ctx.drawImage(this.img, this.position.x, this.position.y);
   }
@@ -149,7 +149,12 @@ class SheetSprite extends BaseSprite {
   setImage(img, clipRect) {
     this.img = img;
     this.clipRect = clipRect;
-    this.bounds = new Rect(this.position.x, this.position.y, clipRect.w, clipRect.h);
+    this.bounds = new Rect(
+      this.position.x,
+      this.position.y,
+      clipRect.w,
+      clipRect.h
+    );
   }
 
   update() {}
@@ -162,8 +167,8 @@ class SheetSprite extends BaseSprite {
 
   draw(ctx) {
     if (!this.img) {
-      throw new Error('Must set img before drawing');
-    };
+      throw new Error("Must set img before drawing");
+    }
     ctx.fill();
     ctx.save();
     ctx.transform(
@@ -261,7 +266,6 @@ class Player extends SheetSprite {
     this.position = new Point2D(x, y);
     this.speed = 0;
 
-
     this.updateBullets(dt);
   }
 
@@ -348,8 +352,8 @@ class Alien extends SheetSprite {
       this.position.y + this.bounds.w / 2,
       -directionX,
       -directionY,
-      3,
-      this.bulletImg,
+      0.005,
+      this.bulletImg
     );
   }
 
@@ -359,6 +363,8 @@ class Alien extends SheetSprite {
     if (this.stepAccumulator >= this.stepDelay) {
       if (this.radius < 20) {
         // TODO: show score before resetting
+        this.alive = false;
+        return;
         // reset();
       }
 
@@ -366,7 +372,7 @@ class Alien extends SheetSprite {
         this.doShoot = true;
       }
 
-      this.angle = (this.angle + 3) % 360;
+      this.angle = (this.angle + 1) % 360;
       if (this.angle % 45 === 0) {
         this.radius -= 25;
       }
@@ -393,7 +399,6 @@ class Alien extends SheetSprite {
     }
   }
 }
-
 
 function resolveBulletAlienCollisions(player, aliens) {
   var bullets = player.bullets;
@@ -423,7 +428,7 @@ function resolveBulletPlayerCollisions(player, aliens, earth) {
         alien.bullet.alive = false;
         const { x, y } = polarToCartesian(
           PLAYER_RADIUS,
-          this.angle
+          player.angle
         ).translateToCenter();
         player.position.set(x, y);
         player.lives--;
