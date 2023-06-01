@@ -104,10 +104,10 @@ export default function Game() {
     if (!player) return;
     switch (e.code) {
       case "KeyJ":
-        player.setSpeed(-.5);
+        player.setSpeed(-.3);
         break;
       case "KeyK":
-        player.setSpeed(0.5);
+        player.setSpeed(0.3);
         break;
       case "KeyF":
       case "KeyX":

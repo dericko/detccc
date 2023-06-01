@@ -423,7 +423,8 @@ function resolveBulletPlayerCollisions(player, aliens, earth) {
       checkRectCollision(alien.bullet.bounds, player.bounds)
     ) {
       if (player.lives === 0) {
-        hasGameStarted = false;
+        // end state
+        console.log("game over")
       } else {
         alien.bullet.alive = false;
         const { x, y } = polarToCartesian(
