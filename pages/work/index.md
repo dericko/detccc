@@ -1,7 +1,7 @@
 ---
 type: posts
-title: Words
+title: Work
 date: 2021-03-18
 ---
 
-# Words
+# Work
