@@ -7,19 +7,21 @@ tag: books
 
 It’s December 2021. I’m walking, and thinking. Where am I walking? On a dusty road in Lake County, California. What am I thinking about? The books I’ve read this fall.
 
-> What do these books have in common?
+**-> Q What do these books have in common?**
 
-- The End of the Affair by Graham Greene
-- Mr. Potter by Jamaica Kincaid
-- In the Distance by Hernan Diaz
-- The Emigrants by W.G. Sebald
-- Woman in the Dunes by Kobo Abe
-- The House of Hunger by Dambudzo Marechera
-- Jealousy by Alain Robbe-Guillet
-- Hôtel Splendid by Marie Redonnet
-- The White Book by Han Kang
+- [The End of the Affair](https://en.wikipedia.org/wiki/The_End_of_the_Affair) by Graham Greene
+- [Mr. Potter](https://en.wikipedia.org/wiki/Mr._Potter_(novel)) by Jamaica Kincaid
+- [In the Distance](https://www.hernandiaz.net/in-the-distance) by Hernan Diaz
+- [The Emigrants](https://en.wikipedia.org/wiki/The_Emigrants_(Sebald_novel)) by W.G. Sebald
+- [Woman in the Dunes](https://en.wikipedia.org/wiki/The_Woman_in_the_Dunes) by Kobo Abe
+- [The House of Hunger](https://en.wikipedia.org/wiki/The_House_of_Hunger) by Dambudzo Marechera
+- [Jealousy](https://en.wikipedia.org/wiki/La_Jalousie) by Alain Robbe-Guillet
+- [Hôtel Splendid](https://www.kirkusreviews.com/book-reviews/marie-redonnet/hotel-splendid/) by Marie Redonnet
+- [The White Book](https://en.wikipedia.org/wiki/The_White_Book) by Han Kang
 
-> Each one features an excellent walk.
+**-> A: Each one features an excellent walk.**
+
+---
 
 **December 3, 2021 -> WHAT A WALK CAN DO**
 
