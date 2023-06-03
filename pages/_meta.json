@@ -5,7 +5,10 @@
   },
   "contact": {
     "title": "Contact",
-    "type": "page"
+    "type": "page",
+    "theme": {
+        "typesetting": "article"
+    }
   },
   "work": {
     "title": "Work",
