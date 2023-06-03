@@ -1,11 +1,11 @@
 ---
 title: What a Walk Can Do
-date: 2020-12-03
+date: 2021-12-03
 description: Reflections on great walks.
 tag: books
 ---
 
-It’s December 2020. I’m walking, and thinking. Where am I walking? On a dusty road in Lake County, California. What am I thinking about? The books I’ve read this fall.
+It’s December 2021. I’m walking, and thinking. Where am I walking? On a dusty road in Lake County, California. What am I thinking about? The books I’ve read this fall.
 
 > What do these books have in common?
 
@@ -21,7 +21,7 @@ It’s December 2020. I’m walking, and thinking. Where am I walking? On a dust
 
 > Each one features an excellent walk.
 
-**December 3, 2020 -> WHAT A WALK CAN DO**
+**December 3, 2021 -> WHAT A WALK CAN DO**
 
 This afternoon I took a walk, my first since I arrived at the hermitage where I've been quarantining since my arrival in Northern California. I walked outside past the pool and the double doors of the main entrance of the big yurt, where I greeted my host, a friend of my mother's, who was busy inside on the computer. She pointed my way to the wooden gate, which I made sure to leave open, as I turned right to climb the road to the top of the hill.
 
@@ -91,7 +91,7 @@ The overall framing of Kincaid's narrator in Mr. Potter might be said to be a wa
 
 As a last example of what a walk can do for memory, let's look at the end of Sebald's Emigrants (to say nothing about his Rings of Saturn). The final image of the book, the women weaving like the sisters of fate, does not take place in the narrative present. It's remembered. After his walk to see the Ferber family graves in Kissingen, the narrator returns to Manchester where Max Ferber is in the hospital. The narrator leaves for a walk, at which point he passes the Midland Hotel in great disrepair. It's this image which he encounters on this walk at the end of the narrative that reminds him of his stay some time before, and it's in the memory of this stay, as he remembers listening to old Siegfried singing at the music hall, that he imagines the singer walking backstage past the photographs the narrator once saw in Frankfurt, walking toward the final image of the weavers. These layers of associative memory are difficult to follow, to say the least. What walking does is add a sense of movement to these layers. It gives the reader a sense of space that makes these movements through memory much smoother than say: A reminds him of B which reminds him of X so he imagines Y remembering Z. The walk provides a progression to help the reader through the progression of images and thought.
 
-**December 4, 2020 -> RETURN**
+**December 4, 2021 -> RETURN**
 
 I remember resort-like ranches and trailer homes, horses, goats, and chicken coops. I removed my jacket and felt the cool sweat on my lower back. Above me, two massive Trump flags stood above concrete blocks. Across the street, Tibetan prayer flags hung draped across a manzanita tree. Below it, in the shade, lay a pile of stuff marked "Free." Scattered in a plastic bin, were old tools and a bag of pool salt. I found a stack investment self-help books. Behind the last title, I found a deck of children's spirit animal cards. I kept the cards, a sort of Tarot-for-kids.
 

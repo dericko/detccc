@@ -1,7 +1,7 @@
 ---
-title: Course on Writing Fiction
-date: 2023-04-01
-description: Syllabus from a course I taught in 2022.
+title: Course Syllabus
+date: 2022-04-01
+description: Syllabus from a fiction class I taught in Spring '22.
 tag: teaching
 ---
 

@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact",
+    "type": "page"
+  },
+  "work": {
+    "title": "Work",
+    "type": "page"
+  }
+}

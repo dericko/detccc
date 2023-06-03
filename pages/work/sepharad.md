@@ -1,6 +1,6 @@
 ---
 title: Sepharad Charts
-date: 2022-10-10
+date: 2023-01-01
 description: A visual essay inspired by Sepharad, a novel by Antonio Munoz Molina
 tag: books
 ---
