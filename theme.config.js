@@ -53,7 +53,7 @@ export default {
     placeholder: "Search",
   },
   editLink: {
-    component: null,
+    component: () => null,
   },
   feedback: {
     content: null,
