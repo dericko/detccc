@@ -52,4 +52,10 @@ export default {
   search: {
     placeholder: "Search",
   },
+  editLink: {
+    component: null,
+  },
+  feedback: {
+    content: null,
+  }
 };
