@@ -25,9 +25,6 @@ export default {
           <a className="gh" href="https://github.com/dericko/detccc">
             You can have it.
           </a>
-          <a className="thx" href="https://github.com/shuding/nextra">
-            built w/ nextra
-          </a>
         </small>
         <style jsx>{`
           footer {
@@ -39,9 +36,6 @@ export default {
           .copyLeft {
             display: inline-block;
             transform: rotateY(180deg);
-          }
-          .thx {
-            float: right;
           }
         `}</style>
       </footer>
