@@ -1,0 +1,1261 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+  <title>Derick Olson-Chan</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style>/* Utils */
+/*----- Colors -----*/
+/*----- Fonts -----*/
+/*----- Dimensions and sizes -----*/
+/* Base */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Josefin Sans Light'), local('JosefinSans-Light'), url(https://fonts.gstatic.com/s/josefinsans/v14/Qw3FZQNVED7rKGKxtqIqX5Ecpl5te10k.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url(https://fonts.gstatic.com/s/josefinsans/v14/Qw3FZQNVED7rKGKxtqIqX5Ectllte10k.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Lato Light Italic'), local('Lato-LightItalic'), url(https://fonts.gstatic.com/s/lato/v16/S6u_w4BMUTPHjxsI9w2_Gwfo.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v16/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v16/S6u_w4BMUTPHjxsI5wq_Gwfo.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+}
+
+html {
+  background: white;
+}
+
+body {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  background: white;
+  margin: 50px 0 100px;
+  letter-spacing: .3px;
+  color: #39424B;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: none;
+  margin: 0;
+}
+
+h1 {
+  font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: .5px;
+}
+
+h3 {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: .4px;
+}
+
+h3.bold {
+  font-weight: 700;
+}
+
+h4 {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+h4.bold {
+  font-weight: 700;
+}
+
+h5 {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+}
+
+h5.italic {
+  font-style: italic;
+}
+
+h6 {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #2895F1;
+}
+
+a .fa-external-link {
+  font-size: 10px;
+  vertical-align: text-top;
+}
+
+p,
+li {
+  font-size: 11px;
+}
+
+blockquote {
+  font-size: 11px;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  margin: 10px 25px;
+}
+
+em {
+  color: #999;
+}
+
+ul {
+  margin: 10px 0 0;
+  -webkit-padding-start: 25px;
+}
+
+ul li {
+  padding-left: 10px;
+}
+
+ul.minimal {
+  list-style: none;
+  padding: 0;
+}
+
+ul.minimal li {
+  margin-bottom: 3px;
+  padding-left: 0;
+}
+
+ul.two-column {
+  -webkit-column-count: 2;
+  -webkit-column-gap: 28px;
+  column-count: 2;
+  column-gap: 28px;
+}
+
+ul.two-column li {
+  padding-left: 0;
+}
+
+@page {
+  size: A4;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+.keyline {
+  width: 45px;
+  margin: 8px 0 10px;
+  border-top: 1px solid #56817A;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.profile-pic {
+  margin-top: -5px;
+  margin-right: 18px;
+}
+
+.profile-pic img {
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  border: 2px solid #56817A;
+}
+
+.summary {
+  margin: 5px 0 5px;
+}
+
+.sublink {
+  font-size: 70%;
+  font-weight: 200;
+  color: dimgray;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* Layouts */
+.page {
+  background: white;
+  width: 612px;
+  min-height: 792px;
+  display: block;
+  margin: 0 auto;
+  border-top: 10px solid #56817A;
+  padding: 36px 22px 30px 34px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.page:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left-column {
+  float: left;
+  width: 160px;
+  margin-right: 20px;
+  word-wrap: break-word;
+}
+
+.right-column {
+  width: auto;
+  overflow: hidden;
+}
+
+.item {
+  margin-bottom: 15px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+@media print {
+  body {
+    margin: 0;
+  }
+
+  .page {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 36px 0 30px;
+    box-shadow: none;
+  }
+
+  .page .resume-header,
+  .page .resume-content {
+    padding: 0 22px 0 34px;
+  }
+
+  .container {
+    page-break-inside: avoid;
+  }
+
+  .work-container .item {
+    page-break-inside: avoid;
+  }
+
+  .fa-external-link {
+    display: none;
+  }
+}
+
+/* Components */
+.info-tag-container {
+  margin-bottom: 5px;
+}
+
+.info-tag-container .fa {
+  font-size: 14px;
+  width: 12px;
+  margin-right: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.info-tag-container .fa.fa-map-marker {
+  font-size: 16px;
+}
+
+.info-tag-container .fa.fa-mobile {
+  font-size: 18px;
+}
+
+.info-tag-container .fa.fa-envelope-o {
+  font-size: 12px;
+}
+
+.info-tag-container .fa.fa-desktop {
+  font-size: 11px;
+}
+
+.info-tag-container .fa.fa-external-link {
+  width: auto;
+  font-size: inherit;
+  vertical-align: text-top;
+}
+
+.info-tag-container .info-text {
+  font-size: 12px;
+  text-transform: none;
+  display: inline-block;
+  vertical-align: middle;
+  width: 139px;
+}
+
+.references-container .fa {
+  font-size: 14px;
+}
+
+.education-container .location {
+  padding-bottom: 6px;
+  font-weight: 400;
+}
+
+.education-container .specialization {
+  text-transform: none;
+  font-style: italic;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.main-skill {
+  font-size: 80%;
+}
+
+.skill {
+  margin: .15em;
+  padding: .15em;
+  background: ghostwhite;
+  border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+  <main id="resume" class="page">
+    <header class="resume-header clearfix">
+        <div class="profile-header pull-left">
+            <h1>Derick Olson-Chan</h1>
+            <h2>Software Engineer</h2>
+        </div>
+        <div class="profile-pic pull-right">
+        </div>
+    </header>
+    <div class="resume-content">
+      <aside class="left-column">
+        <div class="container about-container">
+            <div class="title">
+                <h3>About</h3>
+                <div class="keyline"></div>
+            </div>
+                <div class="info-tag-container">
+                    <i class="fa fa-map-marker"></i>
+                
+                        <h6 class="info-text"> Cambridge Massachusetts  US</h6>
+                </div>
+        
+        
+                <div class="info-tag-container">
+                    <i class="fa fa-envelope-o"></i>
+                
+                        <h6 class="info-text">
+                            <a href="mailto:olsonderick@gmail.com" target="_blank">
+                                olsonderick@gmail.com
+                            </a>
+                        </h6>
+                </div>
+        
+        
+                <div class="info-tag-container">
+                    <i class="fa fa-globe"></i>
+                
+                        <h6 class="info-text">
+                            <a href="https://detc.com" target="_blank">
+                                detc.com
+                            </a>
+                        </h6>
+                </div>
+        
+                                 <div class="info-tag-container">
+                                     <i class="fa fa-github"></i>
+                                 
+                                         <h6 class="info-text">
+                                             <a href="https://github.com/dericko" target="_blank">
+                                                 dericko
+                                             </a>
+                                         </h6>
+                                 </div>
+                                <div class="info-tag-container">
+                                    <i class="fa fa-linkedin-square"></i>
+                                
+                                        <h6 class="info-text">
+                                            <a href="https://www.linkedin.com/in/derickolson" target="_blank">
+                                                derickolson
+                                            </a>
+                                        </h6>
+                                </div>
+        </section>
+            <div class="skills-container">
+                    <section class="container">
+                            <div class="title">
+                                <h3>Frontend</h3>
+                                <div class="keyline"></div>
+                            </div>                    <h4 class="bold capitalize">Expert</h4>
+                            <div class="minimal flex-container">
+                                    <h6 class="main-skill skill">React / Next</h6>
+                                    <h6 class="main-skill skill">Javascript / Typescript</h6>
+                                    <h6 class="main-skill skill">HTML / JSX</h6>
+                                    <h6 class="main-skill skill">SCSS / CSS Modules</h6>
+                                    <h6 class="main-skill skill">GraphQL / Apollo / Relay</h6>
+                                    <h6 class="main-skill skill">Webpack / esbuild</h6>
+                                    <h6 class="main-skill skill">Jest / Unit Testing</h6>
+                                    <h6 class="main-skill skill">Accessibility / a11y</h6>
+                            </div>
+                    </section>
+                    <section class="container">
+                            <div class="title">
+                                <h3>Communication</h3>
+                                <div class="keyline"></div>
+                            </div>                    <h4 class="bold capitalize">Expert</h4>
+                            <div class="minimal flex-container">
+                                    <h6 class="main-skill skill">Documentation</h6>
+                                    <h6 class="main-skill skill">Technical writing</h6>
+                                    <h6 class="main-skill skill">Wikis</h6>
+                                    <h6 class="main-skill skill">Organizational communication</h6>
+                                    <h6 class="main-skill skill">Public speaking</h6>
+                                    <h6 class="main-skill skill">Interviewing</h6>
+                                    <h6 class="main-skill skill">Mentorship</h6>
+                                    <h6 class="main-skill skill">Teaching</h6>
+                            </div>
+                    </section>
+                    <section class="container">
+                            <div class="title">
+                                <h3>Backend</h3>
+                                <div class="keyline"></div>
+                            </div>                    <h4 class="bold capitalize">Strong</h4>
+                            <div class="minimal flex-container">
+                                    <h6 class="main-skill skill">Node</h6>
+                                    <h6 class="main-skill skill">Ruby on Rails</h6>
+                                    <h6 class="main-skill skill">Python</h6>
+                                    <h6 class="main-skill skill">Postgres</h6>
+                                    <h6 class="main-skill skill">DynamoDB</h6>
+                                    <h6 class="main-skill skill">S3</h6>
+                                    <h6 class="main-skill skill">AWS</h6>
+                                    <h6 class="main-skill skill">End-to-End Testing</h6>
+                                    <h6 class="main-skill skill">Accessibility (a11y) development</h6>
+                            </div>
+                    </section>
+                    <section class="container">
+                            <div class="title">
+                                <h3>Product Development</h3>
+                                <div class="keyline"></div>
+                            </div>                    <h4 class="bold capitalize">Strong</h4>
+                            <div class="minimal flex-container">
+                                    <h6 class="main-skill skill">SEO</h6>
+                                    <h6 class="main-skill skill">Feature Testing</h6>
+                                    <h6 class="main-skill skill">Spring Planning</h6>
+                                    <h6 class="main-skill skill">Retrospectives</h6>
+                                    <h6 class="main-skill skill">React</h6>
+                                    <h6 class="main-skill skill">GraphQL</h6>
+                            </div>
+                    </section>
+                    <section class="container">
+                            <div class="title">
+                                <h3>Open Source Software</h3>
+                                <div class="keyline"></div>
+                            </div>                    <h4 class="bold capitalize">Curious</h4>
+                            <div class="minimal flex-container">
+                                    <h6 class="main-skill skill">Writing</h6>
+                                    <h6 class="main-skill skill">Interactive Fiction</h6>
+                                    <h6 class="main-skill skill">React Native</h6>
+                            </div>
+                    </section>
+            </div>
+            <div class="container languages-container">
+                <div class="title">
+                    <h3>Languages</h3>
+                    <div class="keyline"></div>
+                </div>
+                <ul class="minimal">
+                        <li>
+                            <h6>English <em>(Native speaker)</em></h6>
+                        </li>
+                        <li>
+                            <h6>Mandarin Chinese <em>(Basic Proficiency)</em></h6>
+                        </li>
+                        <li>
+                            <h6>German <em>(Basic Proficiency (B2))</em></h6>
+                        </li>
+                </ul>
+            </div>
+            <div class="container interests-container">
+                <div class="title">
+                    <h3>Interests</h3>
+                    <div class="keyline"></div>
+                </div>
+                    <section class="item">
+                            <h4 class="bold">Reading and Writing</h4>
+                    </section>
+                    <section class="item">
+                            <h4 class="bold">Music and Jamming</h4>
+                    </section>
+                    <section class="item">
+                            <h4 class="bold">Yoga</h4>
+                    </section>
+                    <section class="item">
+                            <h4 class="bold">Meditation</h4>
+                    </section>
+            </div>
+      </aside>
+      <div class="right-column">
+                <div class="container summary-container">
+                    <div class="title">
+                        <h3>Summary</h3>
+                        <div class="keyline"></div>
+                    </div>            <p class="summary">
+                        I&#x27;m a full stack web developer with 5+ years of experience building and shipping apps for millions of users. I&#x27;ve mostly worked with startups and am used to wearing multiple hats. I focus on product experience and prioritize feedback from users and non-technical teammates. I’m passionate about empowering people to create and share their stories. I&#x27;m seeking a role at intersection of technology, books, and creative education.
+                    </p>
+                </div>
+        <div class="container work-container">
+            <div class="title">
+                <h3>Experience</h3>
+                <div class="keyline"></div>
+            </div>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h5 class="italic pull-right">
+                                <span class="startDate">01/2023</span>
+                                <span class="endDate"> - Present</span>
+                        </h5>
+                    </div>
+        
+                    <h4>Freelance Software Developer</h4>
+        
+        
+                    <p class="summary">Need help with a project? Drop me a line. I&#x27;m based in Cambridge, MA and am available for short and long-term freelance work.</p>
+        
+                    <ul>
+                        <li>Professional services: React/Next apps, Personal sites, Typescript, API integrations, and GraphQL servers.</li>
+                        <li>Hobby projects: I&#x27;m open to collborating on projects involving: generative fiction, digital books, and education.</li>
+                        <li>Currently Learning: React Native</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://english.as.virginia.edu/" target="_blank">
+                                    University of Virginia
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">06/2021</span>
+                                <span class="endDate"> - 06/2022</span>
+                        </h5>
+                    </div>
+        
+                    <h4>University Instructor</h4>
+        
+        
+                    <p class="summary">As a graduate instructor in UVA&#x27;s Creative Writing program, I taught multiple sections of undergrads, helping students discover what, how, and why they write.</p>
+        
+                    <ul>
+                        <li>Taught semester-long undergraduate English courses in Fiction, Personal Narrative, and Composition.</li>
+                        <li>Lectured and facilitated peer review and workshops, covering topics from Experimental Fiction to Personal Memoir.</li>
+                        <li>Supported student applications for Area Program in Prose and the Writer&#x27;s Eye contest for Ekphrastic Writing.</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://1stdibs.com" target="_blank">
+                                    1stDibs
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">11/2017</span>
+                                <span class="endDate"> - 09/2020</span>
+                        </h5>
+                    </div>
+        
+                    <h4>Software Engineer</h4>
+        
+        
+                    <p class="summary">1stDibs is a marketplace for one-of-a-kind items with 5M+ monthly visitors. As a JavaScript developer on the Core Engagement and International teams, I wrote key integrations to launch the Internationalized eCommerce site.</p>
+        
+                    <ul>
+                        <li>Shipped responsive Mobile Web UX across Search / Browse / Product Detail Pages using React, Scss, and React Storybook.</li>
+                        <li>Shipped &#x27;Discover Page&#x27; by taking a Company Hack-a-thon prototype to production to launch 1stDibs&#x27; first personalized recommendation engine using React, Relay, and GraphQL on Node.</li>
+                        <li>Built automated translations system for launch of International websites in: Germany, France, &amp; UK using React-Intl, Node scripts, Smartling API, Github API, and Jenkins build server.</li>
+                        <li>Organized onsite Student Hack-a-thon with students from three NYC Public High Schools, internal stakeholders, and a team of volunteer teachers from CodeNation</li>
+                        <li>Re-built login modals and sign-up flows across site to support new user account types for increased engagement and decreased time to first sale.</li>
+                        <li>Built location-based recommendations and filters to connect buyers and sellers from closer locales</li>
+                        <li>Re-wrote internal tooling for A/B tests and SEO optimizations, improving Product-Developer time to launch across teams.</li>
+                        <li>Technologies: React, Node, GraphQL, SEO+AMP, A/B Testing, i18n, GitHub Integrations, Mobile Web, Server-Side Rendering.</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://remind.com/chat" target="_blank">
+                                    Remind
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">06/2016</span>
+                                <span class="endDate"> - 09/2017</span>
+                        </h5>
+                    </div>
+        
+                    <h4>Software Engineer</h4>
+        
+        
+                    <p class="summary">Remind helps students, teachers, and parents safely communicate in K-12 schools. As a Product Engineer on the Core Engagement team, I worked across the stack to ship features support a user base of 20M+ monthly users.</p>
+        
+                    <ul>
+                        <li>React, GraphQL, Node, Ruby on Rails, Go, AWS, Docker, and CircleCI.</li>
+                        <li>Full-stack implementation of reaction emojis for Message Reactions, File Uploading, and Message Composition.</li>
+                        <li>Participated in monthly 48 hour on-call rotation to monitor backend infrastructure and front end services</li>
+                        <li>Contributed to team-wide adoption of modern javascript frameworks: Apollo GraphQL, Redux, and React</li>
+                        <li>Re-wrote Twilio integration for modern JavaScript and Node (no more callbacks!)</li>
+                        <li>Successfully ran a multi-week migration from Rails-based PostgreSQL to Go service built on DynamoDB with zero downtime.</li>
+                        <li>Shipped profile photo uploads, cropping, and storage using React, Apollo GraphQL, and AWS S3.</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://foursquare.com/" target="_blank">
+                                    Foursquare
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">05/2015</span>
+                                <span class="endDate"> - 08/2015</span>
+                        </h5>
+                    </div>
+        
+                    <h4>Software Engineering Intern</h4>
+        
+        
+                    <p class="summary">Foursquare is a location-based social network with 50M+ monthly users with a recommendations platform leveraging the power of geolocation. As a data engineering intern, I learned a ton from a team of Data Scientists. I supported the in-house Machine Learning pipeline using Scalding and Luigi MapReduce frameworks, improving Scala server performance, and created internal tools for the product team.</p>
+        
+                    <ul>
+                        <li>Implemented &#x27;Recently Viewed Venues&#x27; feature for LambdaMART learning-to-rank model.</li>
+                        <li>Improved product-engineering communication by creating internal dashboard for testing location models.</li>
+                        <li>Re-wrote notifications pipeline in Scala to fetch data in concurrent stages.</li>
+                        <li>Decreased machine utilization by batching service calls for similar notifications.</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://www.cis.upenn.edu/" target="_blank">
+                                    University of Pennsylvania
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">09/2013</span>
+                                <span class="endDate"> - 05/2015</span>
+                        </h5>
+                    </div>
+        
+                    <h4>Teaching Assistant</h4>
+        
+        
+                    <p class="summary">I was a teaching assistant for several undergraduate courses, including: Functional Programming, Data Structures, and Theory of Computation.</p>
+        
+                    <ul>
+                        <li>Java, OCaml, LaTeX, and Javascript.</li>
+                        <li>Led weekly presentations and assignments for groups 20-students.</li>
+                        <li>Provided one-on-one mentorship on homework and exam preparation.</li>
+                        <li>Assisted professors in various tasks such as improving course documentation, assignment updates, and grading exams.</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                Symposium Inc.
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">09/2014</span>
+                                <span class="endDate"> - 03/2015</span>
+                        </h5>
+                    </div>
+        
+                    <h4>Product Manager</h4>
+        
+        
+                    <p class="summary">Web-based recruitment platform, Crowd.</p>
+        
+                    <ul>
+                        <li>Designed, implemented, and deployed the company landing page.</li>
+                        <li>Served as primary liason between non-technical founder and software contractors for web and iOS apps.</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://capvision.com/" target="_blank">
+                                    Capvision Partners
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">09/2013</span>
+                                <span class="endDate"> - 05/2015</span>
+                        </h5>
+                    </div>
+        
+                    <h4>iOS Engineering Intern</h4>
+        
+        
+                    <p class="summary">Cross-functional intern working with members of IT and Marketing teams for a financial consulting firm.</p>
+        
+                    <ul>
+                        <li>Objective-C, Core Data, Swift, and SQLite.</li>
+                        <li>Built iOS app (凯盛汇/KaiShengHui) for consultants to read and share in-house industry news, find new projects, find and RSVP to events, and view profile and existing project updates.</li>
+                        <li>Collaborated with all-Chinese Marketing and Design teams to define application requirements.</li>
+                        <li>Designed and implemented networking client backed by Core Data to persist JSON responses to local SQLite.</li>
+                    </ul>
+                </section>
+        </div>
+        <div class="container project-container">
+            <div class="title">
+                <h3>Open Source Projects</h3>
+                <div class="keyline"></div>
+            </div>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://openmeditations.org/" target="_blank">
+                                    Open Meditations Podcast
+                                        <span class="sublink">∙ <a href="https://openmeditations.org/" target="_blank" class="sublink">https://openmeditations.org/</a></span>
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">01/2019</span>
+                                <span class="endDate"> - 01/2021</span>
+                        </h5>
+                    </div>
+        
+        
+        
+                    <p class="summary">I used to lead short meditations at the office at 1stdibs. After a time, I decided start a podcast. I leaned into the technical constraints of a noisy NYC apartment by opting to record everything outside, letting the sounds of the city become part of the experience.</p>
+        
+                    <ul>
+                        <li>Audio: recording with a lavier mic + iPhone</li>
+                        <li>Mixing: Ferrite App</li>
+                        <li>Visuals: Pixelmator</li>
+                        <li>Web presence: static react app on S3</li>
+                        <li>Social: Instagram @openmeditations</li>
+                        <li>Hosting + distribution: Podbean</li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://www.detc.cc/work/sepharad" target="_blank">
+                                    Narrative Charts
+                                        <span class="sublink">∙ <a href="https://www.detc.cc/work/sepharad" target="_blank" class="sublink">https://www.detc.cc/work/sepharad</a></span>
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">01/2019</span>
+                                <span class="endDate"> - 01/2021</span>
+                        </h5>
+                    </div>
+        
+        
+        
+                    <p class="summary">A visual essay inspired by Sepharad, a novel by Antonio Munoz Molina.</p>
+        
+                    <ul>
+                        <li></li>
+                    </ul>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                <a href="https://www.detc.cc/work/syllabi" target="_blank">
+                                    Sample Syllabus
+                                        <span class="sublink">∙ <a href="https://www.detc.cc/work/syllabi" target="_blank" class="sublink">https://www.detc.cc/work/syllabi</a></span>
+                                </a>
+                        </h3>
+                        <h5 class="italic pull-right">
+                                <span class="startDate">06/2021</span>
+                                <span class="endDate"> - 06/2022</span>
+                        </h5>
+                    </div>
+        
+        
+        
+                    <p class="summary">Sample Syllabus for a course in creative writing.</p>
+        
+                    <ul>
+                        <li>Based on courses taught at the University of Virginia in 2021-2022</li>
+                    </ul>
+                </section>
+        </div>
+        <div class="container education-container">
+            <div class="title">
+            <h3>Education</h3>
+            <div class="keyline"></div>
+        </div> 
+            <section class="item">
+                <div class="section-header clearfix">
+            <h3 class="bold pull-left">
+                    <a href="https://virginia.edu" target="_blank">
+                        University of Virginia
+                    </a>
+            </h3>
+            <h5 class="italic pull-right">
+                    <span class="startDate">09/2020</span>
+                    <span class="endDate"> - 01/2023</span>
+            </h5>
+        </div>
+         
+                <h4>Master of Fine Arts Creative Writing</h4>
+        
+          
+                <ul class="two-column">
+                    <li>Fiction Workshop</li>
+                    <li>Structuring the Novel</li>
+                    <li>Forms and Theory of Poetry</li>
+                    <li>Rhetoric and Pedagogy</li>
+                    <li>Introduction to Pali</li>
+                </ul>
+            </section>
+        
+            <section class="item">
+                <div class="section-header clearfix">
+            <h3 class="bold pull-left">
+                    <a href="https://upenn.edu" target="_blank">
+                        University of Virginia
+                    </a>
+            </h3>
+            <h5 class="italic pull-right">
+                    <span class="startDate">09/2011</span>
+                    <span class="endDate"> - 05/2015</span>
+            </h5>
+        </div>
+         
+                <h4>Bachelor of Arts Computer Science, East Asian Studies</h4>
+        
+          
+                <ul class="two-column">
+                    <li>Internet &amp; Web Systems</li>
+                    <li>Programming and Problem Solving</li>
+                    <li>Unix Operating Systems</li>
+                    <li>Linux</li>
+                    <li>Algorithms</li>
+                    <li>Theory of Computation</li>
+                </ul>
+            </section>
+        </div>
+        <div class="container volunteer-container">
+            <div class="title">
+                <h3>Volunteer</h3>
+                <div class="keyline"></div>
+            </div>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://crit.works/" target="_blank">
+                                Post-CRIT
+                                    <span class="sublink">∙ <a href="https://crit.works/" target="_blank" class="sublink">https://crit.works/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">01/2018</span>
+                            <span class="endDate"> - Present</span>
+                    </h5>
+                </div>
+                <h5>Writing Group Member</h5>
+        
+                <p class="summary">Writing group based in NYC and online</p>
+        
+                <ul>
+                    <li>Co-run bi-weekly meetings with 9 writers of fiction, essay, and poetry.</li>
+                    <li>Workshopped and edited 100+ pieces of writing including 3 novels, 1 essay collection, and dozens of short stories and poems.</li>
+                    <li>Helped colleagues with submissions to literary journals and contests, resulting in 10+ publications.</li>
+                    <li>Assisted colleagues with MFA applications, resulting in acceptances to top programs.</li>
+                </ul>
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://jbirdsupply.com/" target="_blank">
+                                JBird Supply Coffee Roasters
+                                    <span class="sublink">∙ <a href="https://jbirdsupply.com/" target="_blank" class="sublink">https://jbirdsupply.com/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">04/2021</span>
+                            <span class="endDate"> - 09/2022</span>
+                    </h5>
+                </div>
+                <h5>Barista</h5>
+        
+                <p class="summary">Helped setup mobile cafe in farmer&#x27;s markets across Charlottesville, VA and assisted in the cafe / roastery.</p>
+        
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://ennachocolate.com/" target="_blank">
+                                Enna Chocolate
+                                    <span class="sublink">∙ <a href="https://ennachocolate.com/" target="_blank" class="sublink">https://ennachocolate.com/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">12/2022</span>
+                            <span class="endDate"> - 04/2023</span>
+                    </h5>
+                </div>
+                <h5>Barista</h5>
+        
+                <p class="summary">Helped bean-to-bar chocolate maker in Exeter, NH improve cafe experience with specialty drinks, tastings, and customer service.</p>
+        
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://ennachocolate.com/" target="_blank">
+                                D Squared Java
+                                    <span class="sublink">∙ <a href="https://ennachocolate.com/" target="_blank" class="sublink">https://ennachocolate.com/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">09/2022</span>
+                            <span class="endDate"> - 04/2023</span>
+                    </h5>
+                </div>
+                <h5>Barista</h5>
+        
+                <p class="summary">Helped local specialty coffee shop in Exeter, NH during employee shortage.</p>
+        
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://codenation.org" target="_blank">
+                                Code Nation
+                                    <span class="sublink">∙ <a href="https://codenation.org" target="_blank" class="sublink">https://codenation.org</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">09/2017</span>
+                            <span class="endDate"> - 06/2019</span>
+                    </h5>
+                </div>
+                <h5>Teacher</h5>
+        
+                <p class="summary">Taught web development fundamentals (js/html/css) to high school students in Brooklyn (Uncommon Charter) and Manhattan (Seward Park Campus, Essex, LoMa, Dual-Language)</p>
+        
+                <ul>
+                    <li>Hosted Student/Teacher Hack-a-thon at 1stdibs HQ</li>
+                </ul>
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://https://anthology.lib.virginia.edu/index.html" target="_blank">
+                                Literature in Context (UVA)
+                                    <span class="sublink">∙ <a href="https://https://anthology.lib.virginia.edu/index.html" target="_blank" class="sublink">https://https://anthology.lib.virginia.edu/index.html</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">06/2022</span>
+                            <span class="endDate"> - 09/2022</span>
+                    </h5>
+                </div>
+                <h5>Digital Humanities Associate</h5>
+        
+        
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://uvafralinartmuseum.virginia.edu/" target="_blank">
+                                Poetry / Fiction Judge
+                                    <span class="sublink">∙ <a href="https://uvafralinartmuseum.virginia.edu/" target="_blank" class="sublink">https://uvafralinartmuseum.virginia.edu/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">12/2021</span>
+                            <span class="endDate"> - 12/2021</span>
+                    </h5>
+                </div>
+                <h5>Fralin Museum of Art</h5>
+        
+                <p class="summary">Inaugaural Fralin </p>
+        
+                <ul>
+                    <li>Led in-person Ekphrastic workshops based on a tour of museum galleries</li>
+                    <li>Selected winners from 300+ entries for the Ekphrastic Poetry and Fiction for the Fralin Museum of Art&#x27;s annual &#x27;Writer&#x27;s Eye&#x27; contest</li>
+                </ul>
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://abhayayoga.com/" target="_blank">
+                                Abhaya Yoga
+                                    <span class="sublink">∙ <a href="https://abhayayoga.com/" target="_blank" class="sublink">https://abhayayoga.com/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">10/2017</span>
+                            <span class="endDate"> - 04/2018</span>
+                    </h5>
+                </div>
+                <h5>Yoga Exchange Volunteer</h5>
+        
+                <p class="summary">Assisted teachers with studio management.</p>
+        
+                <ul>
+                    <li>Helped with daily opening and closing of studio 2-3 times per week.</li>
+                    <li>Helped owners with moving logistics and setup of new studio in Gowanus, Brooklyn</li>
+                </ul>
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://yogasocietysanfrancisco.com/" target="_blank">
+                                Yoga Society of San Francisco
+                                    <span class="sublink">∙ <a href="https://yogasocietysanfrancisco.com/" target="_blank" class="sublink">https://yogasocietysanfrancisco.com/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">01/2016</span>
+                            <span class="endDate"> - 09/2017</span>
+                    </h5>
+                </div>
+                <h5>Resident Yoga Teacher</h5>
+        
+                <p class="summary">Resident Yoga Teacher at an urban ashram in San Francisco.</p>
+        
+                <ul>
+                    <li>Completed 200-hour yoga teacher training during four month residence.</li>
+                    <li>Led twice-weekly Hath Yoga classes.</li>
+                    <li>Led Agnihotra fire ceremony, chanting, and meditation 3-4 times per week</li>
+                    <li>Led three workshops on meditative Breathwork.</li>
+                </ul>
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://oikospennblog.wordpress.com/about/" target="_blank">
+                                oikos Penn
+                                    <span class="sublink">∙ <a href="https://oikospennblog.wordpress.com/about/" target="_blank" class="sublink">https://oikospennblog.wordpress.com/about/</a></span>
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            <span class="startDate">09/2017</span>
+                            <span class="endDate"> - 06/2019</span>
+                    </h5>
+                </div>
+                <h5>Teacher</h5>
+        
+                <p class="summary">Organization for sustainable economics</p>
+        
+                <ul>
+                    <li>Respresented the US at oikos International Presidents&#x27; Meet gathering in St. Gallen, Switzerland</li>
+                    <li>Organized a sustainable micro-brewery tour at Yards Brewing company in Philadelphia, PA</li>
+                    <li>Organized pop-up farmers&#x27; market at Penn, featuring local and organic produce.</li>
+                </ul>
+            </section>
+        </div>
+        <div class="container awards-container">
+            <div class="title">
+                <h3>Awards</h3>
+                <div class="keyline"></div>
+            </div>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                Poe Faulkner Fellowship 2020-2022
+                        </h3>
+                        <h5 class="italic pull-right">
+                        </h5>
+                    </div>
+        
+                    <h5 class="awarder">University of Virginia</h5>
+        
+                    <p class="summary">Fully-funded graduate studies and living stipend.</p>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                Dean&#x27;s List 2011-2013
+                        </h3>
+                        <h5 class="italic pull-right">
+                        </h5>
+                    </div>
+        
+                    <h5 class="awarder">University of Pennsylvania</h5>
+        
+                    <p class="summary">Awarded for academic excellence.</p>
+                </section>
+                <section class="item">
+                    <div class="section-header clearfix">
+                        <h3 class="bold pull-left">
+                                Benjamin Franklin Scholar 2011-2015
+                        </h3>
+                        <h5 class="italic pull-right">
+                        </h5>
+                    </div>
+        
+                    <h5 class="awarder">University of Pennsylvania</h5>
+        
+                    <p class="summary">Interdisciplinary community focused on &#x27;crossing boundaries and integrating knowledge.&#x27;</p>
+                </section>
+        </div>
+        <div class="container publications-container">
+            <div class="title">
+                <h3>Publications</h3>
+                <div class="keyline"></div>
+            </div>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://www.havehashad.com/hadposts/snakes" target="_blank">
+                                SNAKES
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            12/2020
+                            </h5>
+                </div>
+        
+                <h5 class="awarder">HAD Magazine</h5>
+        
+                <p class="summary">Short fiction</p>
+        
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://libraetd.lib.virginia.edu/public_view/ff365641t" target="_blank">
+                                Novel Excerpt: Dry Creek Bridge
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            04/2023
+                            </h5>
+                </div>
+        
+                <h5 class="awarder">University of Virginia Libraries</h5>
+        
+                <p class="summary">The first 100 pages of a novel about a flight to Hong Kong, the death of a friend, and a metal band from Modesto, California.</p>
+        
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://sino-platonic.org/complete/spp264_sinitic_language_script.pdf" target="_blank">
+                                Bypassing Censorship on Sina Weibo
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            12/2016
+                            </h5>
+                </div>
+        
+                <h5 class="awarder">Sino Platonic Papers</h5>
+        
+                <p class="summary">Crawling China&#x27;s Twitter to examine the emergence of new terms used to bypass censors.</p>
+        
+            </section>
+            <section class="item">
+                <div class="section-header clearfix">
+                    <h3 class="bold pull-left">
+                            <a href="https://creative.writing.upenn.edu/honors-awards/creative-writing-prizes" target="_blank">
+                                Sarina
+                            </a>
+                    </h3>
+                    <h5 class="italic pull-right">
+                            04/2016
+                            </h5>
+                </div>
+        
+                <h5 class="awarder">Peregrine Magazine</h5>
+        
+                <p class="summary">Short story.</p>
+        
+            </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
