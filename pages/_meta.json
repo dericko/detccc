@@ -10,8 +10,8 @@
         "typesetting": "article"
     }
   },
-  "work": {
-    "title": "Work",
+  "projects": {
+    "title": "Projects",
     "type": "page"
   }
 }

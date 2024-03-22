@@ -2,7 +2,7 @@ const YEAR = new Date().getFullYear();
 
 const meta = {
   title: "detc.cc",
-  description: "My personal site and portfolio.",
+  description: "Derick Chan's personal site and portfolio.",
 };
 
 export default {
@@ -44,7 +44,7 @@ export default {
   faviconGlyph: "📚",
   gitTimestamp: null,
   search: {
-    placeholder: "Search",
+    placeholder: "Search website",
   },
   editLink: {
     component: () => null,
