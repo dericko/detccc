@@ -4,6 +4,11 @@
       "source": "/any_words_or_advice.pdf",
       "destination": "https://s3.amazonaws.com/detc.cc/any_words_or_advice.pdf",
       "permanent": true
+    },
+    {
+      "source": "resume.pdf",
+      "destination": "https://s3.amazonaws.com/detc.cc/resume.pdf",
+      "permanent": true
     }
   ]
 }
