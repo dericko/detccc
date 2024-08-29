@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/any_words_or_advice.pdf",
+      "destination": "https://s3.amazonaws.com/detc.cc/any_words_or_advice.pdf",
+      "permanent": true
+    }
+  ]
+}
