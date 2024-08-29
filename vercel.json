@@ -6,7 +6,7 @@
       "permanent": true
     },
     {
-      "source": "resume.pdf",
+      "source": "/resume.pdf",
       "destination": "https://s3.amazonaws.com/detc.cc/resume.pdf",
       "permanent": true
     }
