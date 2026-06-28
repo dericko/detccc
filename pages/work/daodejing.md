@@ -5,7 +5,7 @@ description:  Visual essay with 180 translations of the Tao Te Ching.
 tag: code, essay
 ---
 
-[Tao Translations (visual essay)](https://ddj-detc.vercel.app/) was inspired by my time studying with the sinologist Victor Mair, professor of Chinese language and literature at the University of Pennsylvania. 
+[Tao Translations (visual essay)](https://ddj-three.vercel.app/) was inspired by my time studying with the sinologist Victor Mair, professor of Chinese language and literature at the University of Pennsylvania.
 
 ## Background
 
@@ -23,5 +23,5 @@ The proliferation of the Daodejing has had profound influences in both the east 
 
 It's built on next.js, using vercel, pgvector.
 
-View it here -> [Tao Translations](https://ddj-detc.vercel.app/)
+View it here -> [Tao Translations](https://ddj-three.vercel.app/)
 
