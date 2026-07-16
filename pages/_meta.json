@@ -1,17 +1,12 @@
 {
   "index": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact",
+    "title": "Home",
     "type": "page",
-    "theme": {
-        "typesetting": "article"
-    }
+    "display": "hidden"
   },
   "work": {
     "title": "Work",
-    "type": "page"
+    "type": "page",
+    "display": "hidden"
   }
 }
